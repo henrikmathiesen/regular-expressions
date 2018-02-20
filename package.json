@@ -1,0 +1,24 @@
+{
+  "name": "regular-expressions",
+  "version": "1.0.0",
+  "description": "Its time to learn them ...",
+  "main": "jesting.test.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrikmathiesen/regular-expressions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrikmathiesen/regular-expressions/issues"
+  },
+  "homepage": "https://github.com/henrikmathiesen/regular-expressions#readme",
+  "devDependencies": {
+    "jest": "^22.3.0"
+  }
+}
