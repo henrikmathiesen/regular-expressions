@@ -3,14 +3,14 @@ describe('Jest should work', () => {
         expect(true).toBe(true);
     });
 
-    it('should do one regex tha returns true', () => { 
+    it('should do one regex that returns true', () => { 
         const pattern = /abc/;
         const subject = 'The latest airplane designs evolved from slabcraft';
 
         expect(pattern.test(subject)).toBe(true);
     });
 
-    it('should do one regex tha returns false', () => { 
+    it('should do one regex that returns false', () => { 
         const pattern = /abc/;
         const subject = 'Grab crab';
 
