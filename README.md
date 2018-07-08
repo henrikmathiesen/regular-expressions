@@ -4,7 +4,8 @@ Its time to learn them ...
 ## Docs
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions  
-https://regex101.com/
+https://regex101.com/  
+https://regexper.com/ , visualize regex
 
 ## Courses
 

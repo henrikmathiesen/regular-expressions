@@ -18,7 +18,12 @@ describe('Building our first regex -- validating a hex color code', () => {
         sample02: 'Ff0012',
         sample03: 'A1',
         sample04: '13A',
-        sample05: '#13A'
+        sample05: '#13A',
+        sample06: 'blue',
+        sample07: '#XYz87A',
+        sample08: '#ff1122 test',
+        sample09: 'test#ff1122test',
+        sample10: ' #aabbcc '
     };
 
     it('should test -- 01', () => {
@@ -135,11 +140,11 @@ describe('Building our first regex -- validating a hex color code', () => {
             expect(result[0]).toBe('13A');                      // it matches this, it ignores the hash
         });
 
-        it('should then know that we have to tell regex to include the hash for both pipes', () => { 
+        it('should then know that we have to tell regex to include the hash for both pipes', () => {
             // We do that by adding parentheses
             const pattern = /#?([A-F0-9]{6}|[A-F0-9]{3})/i;
             const result = pattern.exec(samples.sample05);
-            
+
             expect(result[0]).toBe(samples.sample05);           // now it does match what we want
 
             // also, important, the results array now contains 2 items
@@ -149,6 +154,57 @@ describe('Building our first regex -- validating a hex color code', () => {
             // the parentheses(?) remembers submatch... (I have difficulty hearing what the teacher says in the video)
         });
 
+    });
+
+    describe('Fine tuning even more', () => {
+        it('test 01', () => {
+            const pattern = /#?([A-F0-9]{6}|[A-F0-9]{3})/i;
+
+            const result06 = pattern.exec(samples.sample06);
+            const result07 = pattern.exec(samples.sample07);
+            const result08 = pattern.exec(samples.sample08);
+            const result09 = pattern.exec(samples.sample09);
+            const result10 = pattern.exec(samples.sample10);
+
+            expect(result06).toBe(null);
+
+            // Problem! Neither of these should match
+            expect(result07.length).toBeTruthy();
+            expect(result08.length).toBeTruthy();
+            expect(result09.length).toBeTruthy();
+            expect(result10.length).toBeTruthy();
+        });
+
+        it('should fix the problem above with anchoring', () => {
+            // ^ will anchor at the start of the string and $ will anchor at the end
+            const pattern = /^#?([A-F0-9]{6}|[A-F0-9]{3})$/i;
+
+            const result07 = pattern.exec(samples.sample07);
+            const result08 = pattern.exec(samples.sample08);
+            const result09 = pattern.exec(samples.sample09);
+            const result10 = pattern.exec(samples.sample10);
+
+            // Problem fixed
+            expect(result07).toBe(null);
+            expect(result08).toBe(null);
+            expect(result09).toBe(null);
+            expect(result10).toBe(null);
+        });
+
+        it('should however consider matching sample10 since its just white space', () => { 
+            const pattern = /^#?([A-F0-9]{6}|[A-F0-9]{3})$/i;
+
+            // We can do that in 2 ways
+
+            // 1) using trim()
+            const result10A = pattern.exec(samples.sample10.trim());
+            expect(result10A.length).toBeTruthy();
+
+            // 2) Adding \s* to our regex, this will allow all common white space (like space and tab)
+            const patternAllowingWhiteSpace = /^\s*#?([A-F0-9]{6}|[A-F0-9]{3})\s*$/i;
+            const result10B = patternAllowingWhiteSpace.exec(samples.sample10);
+            expect(result10B.length).toBeTruthy();
+        });
     });
 
 });
