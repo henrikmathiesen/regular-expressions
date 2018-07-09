@@ -58,11 +58,20 @@ describe('match swedish characters', () => {
             expect(result).toBe(null);
         });
 
-        it('should know that it DOES catch a-z, A-Z, 0-9, including the _ (underscore) character', () => { 
-            const sample = 'z';
-            const result = pattern.exec(sample);
-            expect(result.length).toBe(1);
+        describe('should know that it DOES catch a-z, A-Z, 0-9, including the _ (underscore) character', () => {
+            it('test 1', () => {
+                const sample = 'z';
+                const result = pattern.exec(sample);
+                expect(result.length).toBe(1);
+            });
+
+            it('test 2, it does catch capital Z without the i flag', () => {
+                const sample = 'Z';
+                const result = pattern.exec(sample);
+                expect(result.length).toBe(1);
+            });
         });
+
     });
 
 
