@@ -9,7 +9,8 @@ https://regexper.com/ , visualize regex
 
 ## Courses
 
-https://app.pluralsight.com/library/courses/regular-expressions-fundamentals/table-of-contents
+https://app.pluralsight.com/library/courses/regular-expressions-fundamentals/table-of-contents  
+https://www.youtube.com/watch?v=pcCUbnwN96A
 
 ## Notes
 
