@@ -4,6 +4,7 @@ Its time to learn them ...
 ## Docs
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions  
+https://www.regular-expressions.info/  
 https://regex101.com/  
 https://regexper.com/ , visualize regex
 
@@ -11,7 +12,7 @@ https://regexper.com/ , visualize regex
 
 https://app.pluralsight.com/library/courses/regular-expressions-fundamentals/table-of-contents  
 https://www.youtube.com/watch?v=pcCUbnwN96A  
-http://lucasfcosta.com/2016/12/17/Regular-Expressions-in-JavaScript-Part-One.html
+http://lucasfcosta.com/2016/12/17/Regular-Expressions-in-JavaScript-Part-One.html  
 
 ## Notes
 

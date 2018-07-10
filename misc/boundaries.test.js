@@ -29,4 +29,37 @@ describe('boundaries', () => {
         expect(pattern.test(subject05)).toBe(true);
     });
 
+    it('should test word boundary -- test 1', () => {
+        const subject01 = 'Can you deposit?';
+        const subject02 = 'We look for sit!';
+
+        const patternWithoutBoundary = /sit/;
+
+        expect(patternWithoutBoundary.test(subject01)).toBe(true);
+        expect(patternWithoutBoundary.test(subject02)).toBe(true);
+
+        const patternWithBoundary = /\bsit\b/;
+
+        expect(patternWithBoundary.test(subject01)).toBe(false);
+        expect(patternWithBoundary.test(subject02)).toBe(true);
+    });
+
+    it('should test word boundary -- test 2', () => {
+        const subject = 'Vi letar efter ån i ånäsånsån';
+        const pattern = /\bån\b/;
+
+        const result = pattern.exec(subject);
+        expect(result.length).toBe(1);
+        expect(result[0]).toBe('ån');
+    });
+
+    it('should test word boundary -- test 3', () => { 
+        const subject = '4 times 44 sheets of a4';
+        const pattern = /\b4\b/;
+
+        const result = pattern.exec(subject);
+        expect(result.length).toBe(1);
+        expect(result[0]).toBe('4');
+    });
+
 });
