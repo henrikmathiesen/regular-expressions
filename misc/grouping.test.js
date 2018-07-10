@@ -1,6 +1,6 @@
 describe('grouping', () => {
 
-    // Lets say we want to match a letter followed by a number
+    // Lets say we want to match a pattern of a letter followed by a number
 
     const pattern = /^([a-zA-Z][0-9])+$/;
 
