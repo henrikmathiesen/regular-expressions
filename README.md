@@ -10,7 +10,8 @@ https://regexper.com/ , visualize regex
 ## Courses
 
 https://app.pluralsight.com/library/courses/regular-expressions-fundamentals/table-of-contents  
-https://www.youtube.com/watch?v=pcCUbnwN96A
+https://www.youtube.com/watch?v=pcCUbnwN96A  
+http://lucasfcosta.com/2016/12/17/Regular-Expressions-in-JavaScript-Part-One.html
 
 ## Notes
 
