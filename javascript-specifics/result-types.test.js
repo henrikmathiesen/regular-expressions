@@ -1,4 +1,4 @@
-describe('API and Result types', () => {
+describe('API and Result Types', () => {
 
     const subject = 'The latest airplane designs evolved from slabcraft';
     const pattern = /abc/;
