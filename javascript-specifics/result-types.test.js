@@ -3,6 +3,18 @@ describe('API and Result Types', () => {
     const subject = 'The latest airplane designs evolved from slabcraft';
     const pattern = /abc/;
 
+    /*
+    
+        RegEx
+            .test       (returns boolean)
+            .exec       (returns array)
+
+        string
+            .search     (returns the index of the match)
+            .match      (returns array)
+    
+    */
+
     describe('query from a regex pattern, sending in a string', () => {
         it('should understand how to get a boolean, indicating Does it match', () => {
             expect(pattern.test(subject)).toBe(true);
