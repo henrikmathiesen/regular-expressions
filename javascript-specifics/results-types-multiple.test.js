@@ -23,7 +23,7 @@ describe('Results Types, multiple with exec and match', () => {
 
             // This is how it is
             // With a capturing group (parentheses) we get 2 items in the array
-            // The match at index 0 and the capturing group (also at index 0)
+            // The match at index 0 and the capturing group (at index 1...n)
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
 
             expect(result.length).toBe(2);
@@ -64,6 +64,17 @@ describe('Results Types, multiple with exec and match', () => {
         it('should get one match with match', () => { 
             const subject = '4 piles of 4 A4';
             const result = subject.match(/4/);
+
+            expect(result.length).toBe(1);
+        });
+
+        it('should get multiple matches with match', () => { 
+            const subject = '4 piles of 4 A4';
+            const result = subject.match(/4/g);
+
+            expect(result.length).toBe(3);
+
+            // This seems easier than looping with exec
         });
 
     });
