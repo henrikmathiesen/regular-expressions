@@ -18,3 +18,11 @@ http://lucasfcosta.com/2016/12/17/Regular-Expressions-in-JavaScript-Part-One.htm
 
 PCRE is the most widely implementet regex interpreter  
 There is also POSIX
+
+### JavaScript vs other languages
+
+"RegEx concepts are very interchangeable between langauges. But for JavaScript there are some quirks because the lack of support of negative lookbehinds and other advanced regex features (some of which are being added to JS based on the ES6 specification)."  
+https://teamtreehouse.com/community/regex-practicetutorial
+
+More info  
+https://stackoverflow.com/questions/3982608/differences-between-c-sharp-and-javascript-regular-expressions
