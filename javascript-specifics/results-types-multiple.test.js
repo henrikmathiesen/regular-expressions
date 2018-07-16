@@ -9,7 +9,7 @@ describe('Results Types, multiple with exec and match', () => {
             expect(result.length).toBe(1);
         });
 
-        it('should multiple matches with exec -- test 1', () => { 
+        it('should get multiple matches with exec -- test 1', () => { 
             const subject = '4 piles of 4 A4';
             const result = /4/g.exec(subject);
 
@@ -17,7 +17,7 @@ describe('Results Types, multiple with exec and match', () => {
             expect(result.length > 1).toBe(false);
         });
 
-        it('should multiple matches with exec -- test 2', () => { 
+        it('should get multiple matches with exec -- test 2', () => { 
             const subject = '4 piles of 4 A4';
             const result = /(4)/g.exec(subject);
 
@@ -25,7 +25,7 @@ describe('Results Types, multiple with exec and match', () => {
             expect(result.length).toBe(2);
         });
 
-        it('should multiple matches with exec -- test 3', () => { 
+        it('should get multiple matches with exec -- test 3', () => { 
             const subject = '4 piles of 4 A4';
             const result = /([4+])|([\d*4\d*])/g.exec(subject);
 
