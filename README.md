@@ -5,7 +5,7 @@ Its time to learn them ...
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions  
 https://www.regular-expressions.info/  
-https://regex101.com/  
+https://regexr.com/  
 https://regexper.com/ , visualize regex  
 https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
 

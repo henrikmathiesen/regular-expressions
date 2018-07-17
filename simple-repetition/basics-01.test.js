@@ -35,7 +35,7 @@ describe('Basics 01', () => {
         expect(txt.match(pattern)).toBeNull();
     });
 
-    it('should catch variations', () => { 
+    it('should catch variations', () => {
         const pattern = /gr[ea]y/;
 
         const subject01 = 'The sky was grey';
@@ -43,6 +43,40 @@ describe('Basics 01', () => {
 
         expect(subject01.match(pattern).length).toBeTruthy();
         expect(subject02.match(pattern).length).toBeTruthy();
+    });
+
+    it('should match a word followed by a space and another word', () => {
+        const pattern = /^[a-ö]+\s[a-ö]+$/i;
+
+        expect('foo bar'.match(pattern).length).toBeTruthy();
+        expect('Foo Bar'.match(pattern).length).toBeTruthy();
+        expect('Foo bar'.match(pattern).length).toBeTruthy();
+        expect('foo Bar'.match(pattern).length).toBeTruthy();
+        expect('fooooooooooooooooooz doooorAAAAAAAAAAH'.match(pattern).length).toBeTruthy();
+
+        expect('fooooooooooooooooooz doooorAAAAAAAAAAH!'.match(pattern)).toBeNull();
+        expect('Foobar'.match(pattern)).toBeNull();
+        expect('FooBar'.match(pattern)).toBeNull();
+    });
+
+    it('should start with a capital letter, followed by any number of letters', () => {
+        const pattern = /^[A-Z][a-z]+$/;
+
+        expect('Adam'.match(pattern).length).toBeTruthy();
+
+        expect('TJones'.match(pattern)).toBeNull();
+        expect('jones'.match(pattern)).toBeNull();
+        expect('A jones'.match(pattern)).toBeNull();
+    });
+
+    it('should start with 1-2 capital letters, followed by any number of letters', () => { 
+        const pattern = /^[A-Z]{1,2}[a-z]+$/;
+
+        expect('Adam'.match(pattern).length).toBeTruthy();
+        expect('TJones'.match(pattern).length).toBeTruthy();
+
+        expect('TJJjones'.match(pattern)).toBeNull();
+        expect('jones'.match(pattern)).toBeNull();
     });
 
 });
