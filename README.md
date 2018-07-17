@@ -6,7 +6,8 @@ Its time to learn them ...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions  
 https://www.regular-expressions.info/  
 https://regex101.com/  
-https://regexper.com/ , visualize regex
+https://regexper.com/ , visualize regex  
+https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
 
 ## Courses
 
@@ -18,6 +19,8 @@ http://lucasfcosta.com/2016/12/17/Regular-Expressions-in-JavaScript-Part-One.htm
 
 PCRE is the most widely implementet regex interpreter  
 There is also POSIX
+
+https://www.regular-expressions.info/email.html , important: use with i flag and ^$
 
 ### JavaScript vs other languages
 
