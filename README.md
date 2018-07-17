@@ -25,4 +25,5 @@ There is also POSIX
 https://teamtreehouse.com/community/regex-practicetutorial
 
 More info  
-https://stackoverflow.com/questions/3982608/differences-between-c-sharp-and-javascript-regular-expressions
+https://stackoverflow.com/questions/3982608/differences-between-c-sharp-and-javascript-regular-expressions  
+https://www.regular-expressions.info/javascript.html
