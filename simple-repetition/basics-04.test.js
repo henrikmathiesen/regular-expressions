@@ -10,7 +10,7 @@ describe('Basics 04', () => {
 
     describe('Validation', () => {
 
-        it('should be a correctly formated date', () => { 
+        it('should be a correctly formated date', () => {
 
             // yyyy-MM-dd
 
@@ -33,6 +33,52 @@ describe('Basics 04', () => {
             expect(pattern.test(d)).toBe(true);
 
             // new Date(d) actually just moves the day forward to mars 03...
+        });
+
+    });
+
+    describe('Search', () => {
+
+        it('should do something if localhost', () => {
+            const pattern = /localhost:\d/;
+
+            const subject01 = 'http://localhost:8080';
+            const subject02 = 'http://wwww.test.com';
+            const subject03 = 'http://wwww.localhoster.com';
+
+            expect(pattern.test(subject01)).toBe(true);
+            expect(pattern.test(subject02)).toBe(false);
+            expect(pattern.test(subject03)).toBe(false);
+        });
+
+        it('should find all png files in an array', () => {
+            const files = [
+                'adam.png',
+                'bertil.png',
+                'ceasar.gif',
+                'david.jpg',
+                'erik.jpg',
+                'fredrik.png',
+                'gustav.gif'
+            ];
+
+            const pattern = /\.png$/;
+            const pngs = files.filter(f => f.match(pattern));
+
+            expect(pngs.length).toBe(3);
+            expect(pngs[0]).toBe('adam.png');
+            expect(pngs[1]).toBe('bertil.png');
+            expect(pngs[2]).toBe('fredrik.png');
+        });
+
+        it('should replace all gray and replace them with grey', () => { 
+            const subject = 'It was a gray rainy day, as gray as my mood. It is not great this grayvy';
+            const pattern = /\bgray\b/g;
+
+            const greys = subject.replace(pattern, 'grey');
+            expect(greys).toEqual('It was a grey rainy day, as grey as my mood. It is not great this grayvy');
+
+            // If we had just used the string gray as first argument to .replace() it would have only replaced the first instance of gray
         });
 
     });
