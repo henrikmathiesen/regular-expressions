@@ -1,5 +1,10 @@
 describe('match swedish characters', () => {
 
+    // IMPORTANT
+    // "Support for internationalization in JavaScript's RegExp is virtually nonexistent."
+    // https://stackoverflow.com/questions/1669479/swedish-characters-check-with-javascript
+    // DO NOT TRUST A-Ö or a-ö
+
     const samples = {
         sample01: 'lök',
         sample02: 'pong',
@@ -13,37 +18,37 @@ describe('match swedish characters', () => {
     describe('should be exacly 3 characters or numbers', () => {
         const pattern = /^[a-ö0-9]{3}$/i;
 
-        it('sample 1 should give 1 match', () => {
+        it('sample 1 should match', () => {
             const result = pattern.exec(samples.sample01);
             expect(result.length).toBe(1);
         });
 
-        it('sample 2 should give no match', () => {
+        it('sample 2 should match', () => {
             const result = pattern.exec(samples.sample02);
             expect(result).toBe(null);
         });
 
-        it('sample 3 should give 1 match', () => {
+        it('sample 3 should match', () => {
             const result = pattern.exec(samples.sample03);
             expect(result.length).toBe(1);
         });
 
-        it('sample 4 should give 1 match', () => {
+        it('sample 4 should match', () => {
             const result = pattern.exec(samples.sample04);
             expect(result.length).toBe(1);
         });
 
-        it('sample 5 should give no match', () => {
+        it('sample 5 should not match', () => {
             const result = pattern.exec(samples.sample05);
             expect(result).toBe(null);
         });
 
-        it('sample 6 should give 1 match', () => {
+        it('sample 6 should match', () => {
             const result = pattern.exec(samples.sample06);
             expect(result.length).toBe(1);
         });
 
-        it('sample 7 should give no match', () => {
+        it('sample 7 should not match', () => {
             const result = pattern.exec(samples.sample07);
             expect(result).toBe(null);
         });
