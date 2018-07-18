@@ -63,7 +63,7 @@ describe('Basics 04', () => {
             ];
 
             const pattern = /\.png$/;
-            const pngs = files.filter(f => f.match(pattern));
+            const pngs = files.filter(f => f.match(pattern));   // .match returns null if no match, which is falsy
 
             expect(pngs.length).toBe(3);
             expect(pngs[0]).toBe('adam.png');

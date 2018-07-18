@@ -36,7 +36,7 @@ describe('API and Result Types', () => {
     describe('query from a string, sending in regex', () => {
         it('should understand that search returns the index of the position of the match', () => { 
             const result = subject.search(pattern);
-            expect(result > 0).toBe(true);
+            expect(result > -1).toBe(true);
         });
 
         it('should understand how to get an array, indicating How many matches', () => {
