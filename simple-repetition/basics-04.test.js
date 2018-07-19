@@ -58,17 +58,17 @@ describe('Basics 04', () => {
                 'ceasar.gif',
                 'david.jpg',
                 'erik.jpg',
-                'fredrik.png',
+                'fredrik.PNG',
                 'gustav.gif'
             ];
 
-            const pattern = /\.png$/;
+            const pattern = /\.png$/i;
             const pngs = files.filter(f => f.match(pattern));   // .match returns null if no match, which is falsy
 
             expect(pngs.length).toBe(3);
             expect(pngs[0]).toBe('adam.png');
             expect(pngs[1]).toBe('bertil.png');
-            expect(pngs[2]).toBe('fredrik.png');
+            expect(pngs[2]).toBe('fredrik.PNG');
         });
 
         it('should replace all gray and replace them with grey', () => { 
