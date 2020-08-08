@@ -121,6 +121,9 @@ describe('Basics 04', () => {
             // invalid
             expect(validateDate('foo')).toBe(false);
             expect(validateDate('2021012t')).toBe(false);
+            expect(validateDate('20211224t')).toBe(false);
+            expect(validateDate('20211224-')).toBe(false);
+            expect(validateDate('-20211224')).toBe(false);
             expect(validateDate('t2021012')).toBe(false);
             expect(validateDate('2021t012')).toBe(false);
             expect(validateDate('2021012-')).toBe(false);
