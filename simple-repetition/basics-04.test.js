@@ -64,6 +64,10 @@ describe('Basics 04', () => {
             expect(checkPatterns('20030203')).toBe(true);
             expect(checkPatterns('18910911')).toBe(true);
             expect(checkPatterns('19950723')).toBe(true);
+
+            // edge case again, 31 feb
+            // We need "Is reasonable date", see my-app > info > valid-date-string-from-user-input.ts
+            expect(checkPatterns('2001-02-31')).toBe(true);
             
             // invalid
             expect(checkPatterns('1891-0911')).toBe(false);
