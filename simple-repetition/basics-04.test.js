@@ -33,6 +33,45 @@ describe('Basics 04', () => {
             expect(pattern.test(d)).toBe(true);
 
             // new Date(d) actually just moves the day forward to mars 03...
+            // We need "Is reasonable date", see my-app > info > valid-date-string-from-user-input.ts
+        });
+
+        it('should be a correctly formated date - more relaxed - 1', () => {
+            const pattern = /^\d{4}-?(0[1-9]|1[0-2])-?(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;      // -? = Once or none
+
+            // Valid
+            expect(pattern.test('1980-10-14')).toBe(true);
+            expect(pattern.test('2003-02-03')).toBe(true);
+            expect(pattern.test('1891-09-11')).toBe(true);
+            expect(pattern.test('19801014')).toBe(true);
+            expect(pattern.test('20030203')).toBe(true);
+            expect(pattern.test('18910911')).toBe(true);
+            expect(pattern.test('1891-0911')).toBe(true);                                   // not optimal
+            expect(pattern.test('189109-11')).toBe(true);                                   // not optimal
+        });
+
+        it('should be a correctly formated date - more relaxed - 2', () => {
+            const pattern01 = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
+            const pattern02 = /^\d{4}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
+
+            // Valid
+            expect(pattern01.test('1980-10-14') || pattern02.test('1980-10-14')).toBe(true);
+            expect(pattern01.test('2003-02-03') || pattern02.test('2003-02-03')).toBe(true);
+            expect(pattern01.test('1891-09-11') || pattern02.test('1891-09-11')).toBe(true);
+            expect(pattern01.test('19801014') || pattern02.test('19801014')).toBe(true);
+            expect(pattern01.test('20030203') || pattern02.test('20030203')).toBe(true);
+            expect(pattern01.test('18910911') || pattern02.test('18910911')).toBe(true);
+            expect(pattern01.test('19950723') || pattern02.test('19950723')).toBe(true);
+            
+            // invalid
+            expect(pattern01.test('1891-0911') || pattern02.test('1891-0911')).toBe(false);
+            expect(pattern01.test('189109-11') || pattern02.test('189109-11')).toBe(false);
+
+            // more invalid
+            expect(pattern01.test('1980-13-14') || pattern02.test('1980-13-14')).toBe(false);
+            expect(pattern01.test('2009-01-32') || pattern02.test('2009-01-32')).toBe(false);
+            expect(pattern01.test('201-10-11') || pattern02.test('201-10-11')).toBe(false);
+            expect(pattern01.test('2017-0210-31') || pattern02.test('2017-0210-31')).toBe(false);
         });
 
     });
