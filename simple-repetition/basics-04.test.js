@@ -54,24 +54,26 @@ describe('Basics 04', () => {
             const pattern01 = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
             const pattern02 = /^\d{4}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/;
 
+            const checkPatterns = dateString => pattern01.test(dateString) || pattern02.test(dateString);
+
             // Valid
-            expect(pattern01.test('1980-10-14') || pattern02.test('1980-10-14')).toBe(true);
-            expect(pattern01.test('2003-02-03') || pattern02.test('2003-02-03')).toBe(true);
-            expect(pattern01.test('1891-09-11') || pattern02.test('1891-09-11')).toBe(true);
-            expect(pattern01.test('19801014') || pattern02.test('19801014')).toBe(true);
-            expect(pattern01.test('20030203') || pattern02.test('20030203')).toBe(true);
-            expect(pattern01.test('18910911') || pattern02.test('18910911')).toBe(true);
-            expect(pattern01.test('19950723') || pattern02.test('19950723')).toBe(true);
+            expect(checkPatterns('1980-10-14')).toBe(true);
+            expect(checkPatterns('2003-02-03')).toBe(true);
+            expect(checkPatterns('1891-09-11')).toBe(true);
+            expect(checkPatterns('19801014')).toBe(true);
+            expect(checkPatterns('20030203')).toBe(true);
+            expect(checkPatterns('18910911')).toBe(true);
+            expect(checkPatterns('19950723')).toBe(true);
             
             // invalid
-            expect(pattern01.test('1891-0911') || pattern02.test('1891-0911')).toBe(false);
-            expect(pattern01.test('189109-11') || pattern02.test('189109-11')).toBe(false);
+            expect(checkPatterns('1891-0911')).toBe(false);
+            expect(checkPatterns('189109-11')).toBe(false);
 
             // more invalid
-            expect(pattern01.test('1980-13-14') || pattern02.test('1980-13-14')).toBe(false);
-            expect(pattern01.test('2009-01-32') || pattern02.test('2009-01-32')).toBe(false);
-            expect(pattern01.test('201-10-11') || pattern02.test('201-10-11')).toBe(false);
-            expect(pattern01.test('2017-0210-31') || pattern02.test('2017-0210-31')).toBe(false);
+            expect(checkPatterns('1980-13-14')).toBe(false);
+            expect(checkPatterns('2009-01-32')).toBe(false);
+            expect(checkPatterns('201-10-11')).toBe(false);
+            expect(checkPatterns('2017-0210-31')).toBe(false);
         });
 
     });
