@@ -139,6 +139,50 @@ describe('Basics 04', () => {
             expect(validateDate('2017-0210-31')).toBe(false);
         });
 
+        it('should be a reasonable phone number', () => { 
+
+            // 01|012|0123-| n+
+            const pattern = /^\d{2,4}(-*|\s*)\d+$/;
+            
+
+            //
+            // valid
+
+            expect(pattern.test('08123456')).toBe(true);
+            expect(pattern.test('08 123456')).toBe(true);
+            expect(pattern.test('08-123456')).toBe(true);
+
+            expect(pattern.test('0701234567')).toBe(true);
+            expect(pattern.test('070 1234567')).toBe(true);
+            expect(pattern.test('070-1234567')).toBe(true);
+            expect(pattern.test('0701-234567')).toBe(true);
+
+            expect(pattern.test('0155123456')).toBe(true);
+            expect(pattern.test('0155 123456')).toBe(true);
+            expect(pattern.test('0155-123456')).toBe(true);
+
+            expect(pattern.test('0155-123456000000000000000000000')).toBe(true);    // other validation will catch maxlength
+
+            //
+            // invalid
+
+            expect(pattern.test('08123456-')).toBe(false);
+            expect(pattern.test('08123456--')).toBe(false);
+            expect(pattern.test('-08123456')).toBe(false);
+            expect(pattern.test('--08123456')).toBe(false);
+
+            expect(pattern.test('08-12-34-56')).toBe(false);
+            expect(pattern.test('08 12 34 56')).toBe(false);
+            expect(pattern.test('08 123 456')).toBe(false);
+            expect(pattern.test('08-123-456')).toBe(false);
+
+            expect(pattern.test('070-123 45 67')).toBe(false);
+            expect(pattern.test('070 123 45 67')).toBe(false);
+
+            expect(pattern.test('0701 23 45 67')).toBe(false);
+            expect(pattern.test('0701-23 45 67')).toBe(false);
+        });
+
     });
 
     describe('Search', () => {
