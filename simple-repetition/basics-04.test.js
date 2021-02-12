@@ -115,10 +115,8 @@ describe('Basics 04', () => {
             expect(validateDate('18910911')).toBe(true);
             expect(validateDate('19950723')).toBe(true);
 
-            // invalid, edge case again, 31 feb, Is reasonable date will catch it
-            expect(validateDate('2001-02-31')).toBe(false);
-
             // invalid
+            expect(validateDate('2001-02-31')).toBe(false);
             expect(validateDate('foo')).toBe(false);
             expect(validateDate('2021012t')).toBe(false);
             expect(validateDate('20211224t')).toBe(false);
